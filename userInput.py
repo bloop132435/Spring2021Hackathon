@@ -4,7 +4,7 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-
+output = open("data.txt","w")
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
@@ -46,10 +46,11 @@ def main():
 	if not values:
 		print('No data found.')
 	else:
-		print('Name, Major:')
 		for row in values:
-			# Print columns A and E, which correspond to indices 0 and 4.
 			print('%s, %s' % (row[1], row[2]))
+			output.write("{} {}\n".format(row[1],row[2]))
+
 
 if __name__ == '__main__':
 	main()
+output.close()
