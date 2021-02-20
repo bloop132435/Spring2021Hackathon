@@ -25,11 +25,11 @@ public class ChatApp extends JFrame {
 	JScrollPane pane = new JScrollPane(chats);
 	JPanel panel = new JPanel();
 	String name;
-	
+
 	public static void main(String[] args) {
 		new ChatApp();
 	}
-	
+
 	public ChatApp() {
 		chats.setEditable(false);
 		pane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -57,7 +57,7 @@ public class ChatApp extends JFrame {
 				server = new ServerSocket(port);
 				socket = server.accept();
 				chats.setText(chats.getText() + "\nClient connected!\n");
-				
+
 				os = new ObjectOutputStream(socket.getOutputStream());
 				is = new ObjectInputStream(socket.getInputStream());
 				os.flush();
@@ -86,7 +86,7 @@ public class ChatApp extends JFrame {
 			try {
 				socket = new Socket(ip, port);
 				chats.setText("Connected to:\nIP: " + ip + "\nPort: " + port + "\n");
-				
+
 				os = new ObjectOutputStream(socket.getOutputStream());
 				is = new ObjectInputStream(socket.getInputStream());
 				os.flush();
@@ -109,7 +109,7 @@ public class ChatApp extends JFrame {
 			}
 		}
 	}
-	
+
 	void sendMessage(ObjectOutputStream address) {
 		String txt = text.getText();
 		text.setText("");
