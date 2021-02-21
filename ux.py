@@ -14,6 +14,12 @@ def updateTimeLine():
             timeLine[i].configure(background="green")
         else:
             timeLine[i].configure(background="white")
+def clearEvents():
+    global active
+    active.clear()
+    for _ in range(60):
+        active.append(False)
+    updateTimeLine()
 def newMeeting():
     os.system("python3 algoTest.py")
     resultFile = open("algoOut.txt","r")
@@ -24,12 +30,7 @@ def newMeeting():
     pass
 def updateForm():
     os.system("python3 userInput.py")
-    global active
-    active.clear()
-    for _ in range(60):
-        active.append(False)
-    updateTimeLine()
-    pass
+    clearEvents()
 def indexToStr(num:int):
     realNum = num//2
     string = str(realNum)
@@ -50,6 +51,8 @@ newMeet = Button(root,text="Add a new meeting",command = newMeeting)
 newMeet.place(x=100,y=100)
 forms = Button(root,text="Update Forms",command = updateForm)
 forms.place(x=260,y=100)
+clear = Button(root, text="Clear Events",bg="red",command=clearEvents)
+clear.place(x=10)
 for i in range(0, 48):
     active.append(False)
     tmpLbl = Label(root, text=indexToStr(i), bg="green" if active[i] else "white", padx=0)
