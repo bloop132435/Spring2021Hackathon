@@ -12,5 +12,6 @@ def parse():
 				thisLine[i] = int(thisLine[i])
 		data.append(thisLine)
 	print(data)
+	return data
 
 parse()
