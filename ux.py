@@ -5,7 +5,6 @@ from parse import parse
 import os
 
 
-
 def updateTimeLine():
     while len(test[0]) < 60:
         test.append(0)
@@ -30,7 +29,6 @@ root = Tk()
 root.title("Meeting Bot")
 def update():
     global test, widget
-    period = 1
     os.system('python3 userInput.py')
     test = parse()
     widget.after(1000,update)

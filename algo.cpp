@@ -2,7 +2,7 @@
 using namespace std;
 vector<string> names;
 int n;
-int numSlots = 2;//TODO change this later
+int numSlots = 48;//TODO change this later
 vector<vector<int>> schedule;
 int main(){
 	cin>>n;
@@ -13,14 +13,20 @@ int main(){
 		cin>>names[i];
 		for(int j = 0;j<numSlots;j++) cin>>schedule[i][j];
 	}
+	cout<<n<<endl;
+	for(int i = 0;i<n;i++){
+		cout<<names[i]<<" ";
+		for (int j : schedule[i]) cout<<j<<" ";
+		cout<<endl;
+	}
 	int maxAttendance = 0;
 	int timeSlot = 0;
-	cout<<"1"<<endl;
 	for(int j = 0;j<numSlots;j++){
 		int sum = 0;
 		for(int i = 0;i<n;i++) sum+=schedule[i][j];
 		if(sum>maxAttendance){
 			maxAttendance = sum;
+			cout<<"max at : " <<j<<endl;
 			timeSlot = j;
 		}
 	}

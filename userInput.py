@@ -47,7 +47,6 @@ def main():
 		print('No data found.')
 	else:
 		for row in values:
-			print('%s, %s' % (row[1], row[2]))
 			count = 0
 			for string in row:
 				count +=1

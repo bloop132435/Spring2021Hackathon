@@ -1,9 +1,10 @@
+import os
 def parse():
+	os.system("python3 userInput.py")
 	dataIn = open("data.txt","r")
 	data = []
 	for line in dataIn:
 		thisLine = line.split(" ")
-		print(thisLine)
 		for i in range(0,len(thisLine)):
 			if thisLine[i]=='':
 				thisLine[i] = 0
@@ -18,7 +19,4 @@ def parse():
 			thisLine.append(0)
 		data.append(thisLine)
 
-	print(data)
 	return data
-
-print(parse())
