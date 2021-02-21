@@ -9,8 +9,8 @@ output = open("data.txt","w")
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = '1cSf8V2hOcEy85v1HXAeBKxKA0_fo6R4IoVGGUWHjy4o'
-SAMPLE_RANGE_NAME = 'A2:E'
+SAMPLE_SPREADSHEET_ID = '1jNhWJGJ6GFJyzrn_MC6fNXLAjxXbKSyDfWkwmswpop8'
+SAMPLE_RANGE_NAME = 'B2:AY'
 
 def main():
 	"""Shows basic usage of the Sheets API.
@@ -48,7 +48,17 @@ def main():
 	else:
 		for row in values:
 			print('%s, %s' % (row[1], row[2]))
-			output.write("{} {}\n".format(row[1],row[2]))
+			count = 0
+			for string in row:
+				count +=1
+				if string=="":
+					output.write("0 ")
+				else:
+					output.write(string+" ")
+			while count<=48:
+				output.write("0 ")
+				count +=1
+			output.write("\n")
 
 
 if __name__ == '__main__':
