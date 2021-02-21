@@ -1,3 +1,7 @@
 *.class
 *.txt
 token.pickle
+algoIn.txt
+algoOut.txt
+data.txt
+token.pickle
