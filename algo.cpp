@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include <fstream>
 using namespace std;
 vector<string> names;
 int n;
@@ -13,12 +14,6 @@ int main(){
 		cin>>names[i];
 		for(int j = 0;j<numSlots;j++) cin>>schedule[i][j];
 	}
-	cout<<n<<endl;
-	for(int i = 0;i<n;i++){
-		cout<<names[i]<<" ";
-		for (int j : schedule[i]) cout<<j<<" ";
-		cout<<endl;
-	}
 	int maxAttendance = 0;
 	int timeSlot = 0;
 	for(int j = 0;j<numSlots;j++){
@@ -26,14 +21,27 @@ int main(){
 		for(int i = 0;i<n;i++) sum+=schedule[i][j];
 		if(sum>maxAttendance){
 			maxAttendance = sum;
-			cout<<"max at : " <<j<<endl;
+			// cout<<"max at : " <<j<<endl;
 			timeSlot = j;
 		}
 	}
-	cout<<"hold meeting at: "<<timeSlot<<endl;
-	cout<<"attendance: "<<endl;
+	if(maxAttendance==0) return 0;
+	//cout<<"hold meeting at: "<<timeSlot<<endl;
+	//cout<<"attendance: "<<endl;
 	for(int i = 0;i<n;i++){
 		if(schedule[i][timeSlot]!=0) cout<<names[i]<<endl;
 	}
 	for(int i = 0;i<n;i++) schedule[i][timeSlot] = 0;
+	ofstream newData;
+	newData.open("data.txt");
+	for(int i = 0;i<n;i++){
+		newData<<names[i]<<" ";
+		for(int j = 0;j<numSlots;j++) newData<<schedule[i][j]<<" ";
+		newData<<endl;
+	}
+	newData.close();
+	ofstream algoOut;
+	algoOut.open("algoOut.txt");
+	algoOut<<timeSlot<<endl;
+	algoOut.close();
 }

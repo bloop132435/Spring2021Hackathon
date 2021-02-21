@@ -1,6 +1,5 @@
 import os
 from parse import parse
-from time import sleep
 testData = parse()
 algoIn = open("algoIn.txt","w")
 algoIn.write(str(len(testData)) + " " + "\n")

@@ -1,6 +1,4 @@
-import os
 def parse():
-	os.system("python3 userInput.py")
 	dataIn = open("data.txt","r")
 	data = []
 	for line in dataIn:
