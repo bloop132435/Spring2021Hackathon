@@ -42,7 +42,7 @@ test = parse()
 widget = Label(root)
 update()
 for i in range(0, 48):
-    active.append(int(test[0][i+1]) >0)
+    active.append(True)
     tmpLbl = Label(root, text=indexToStr(i), bg="green" if active[i] else "white", padx=0)
     timeLine.append(tmpLbl)
     timeLine[i].grid(row=1, column=i)
