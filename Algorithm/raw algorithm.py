@@ -75,7 +75,7 @@ def allMeetings(timeList, num):
 
     if (not(start == -1) and (end == -1)):
         possiMeetings.append((start, 48))
-        
+
     return tuple(possiMeetings)
 
 # max availability of all meetings with at least 2 people
@@ -117,5 +117,5 @@ def maxAviMeetings(timeList):
 
     if (not(start == -1) and (end == -1)):
         possiMeetings.append((start, 48))
-        
-    return tuple(possiMeetings
+
+    return tuple(possiMeetings)
