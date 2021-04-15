@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include <fstream>
 using namespace std;
 vector<string> names;
 int n;
@@ -44,4 +43,3 @@ int main(){
 	algoOut.open("algoOut.txt");
 	algoOut<<timeSlot<<endl;
 	algoOut.close();
-}
