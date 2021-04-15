@@ -43,3 +43,4 @@ int main(){
 	algoOut.open("algoOut.txt");
 	algoOut<<timeSlot<<endl;
 	algoOut.close();
+}
